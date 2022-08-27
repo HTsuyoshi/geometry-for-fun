@@ -4,5 +4,4 @@ Cool geometry problems
 
 Solutions in markdown [here](./exercises)
 
-Solutions in LaTeX [here](./main.pdf
-
+Solutions in LaTeX [here](./main.pdf)
