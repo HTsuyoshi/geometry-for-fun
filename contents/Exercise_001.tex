@@ -1,0 +1,572 @@
+\section{Exercise 001}
+
+\newcommand{\figuresize}{8cm}
+\newcommand{\degreecolor}{green!20!white}
+\newcommand{\degreebordercolor}{green!50!black}
+\newcommand{\degree}{^{\circ}}
+\newcommand{\makeangle}[7]{
+	\begin{scope}
+	\path[clip] (#2) -- (#1) -- (#3);
+	\fill[green!20!white, draw=green!50!black] (#2) circle (#5);
+	\node at ($(#2)+(#6:#7)$) {$#4^{\circ}$};
+	\end{scope}
+}
+
+\subsection{Problem}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+	\coordinate (ACmid) at ($(A)!0.5!(C)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (ACmid)[above right] {$2a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+
+	\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+
+	\end{tikzpicture}
+	\caption{$\overline{DC} = a; \overline{AC} = 2a; \angle \hat{CBD} = 80\degree; \angle \hat{ACD} = 40\degree; \angle \hat{BCD} = 10\degree; \angle \hat{BAC} = ?$}
+\end{figure}
+
+\subsection{Solution 1}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{285}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+
+	\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw[red, dotted, ultra thick] (E) -- (D);
+	\end{tikzpicture}
+	\caption{$\overline{CE} = \overline{CD} = \overline{AE} = a; \angle \hat{CED} = \angle \hat{CDE} = 70\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+
+	\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (E) -- (D);
+	\draw[red, dotted, ultra thick] (F) -- (D);
+	\end{tikzpicture}
+	\caption{$\angle \hat{DEC} = 50\degree; \overline{BF} = \overline{BC}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{80}{0.08}{40}{0.12}
+
+	\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (E) -- (D) -- (F);
+	\draw (B) -- node[sloped] {$|$} (C);
+	\draw (B) -- node[sloped] {$|$} (F);
+	\draw[red, dotted, ultra thick] (A) -- (G) -- (B);
+	\end{tikzpicture}
+	\caption{$\overline{GA}//\overline{BF}; \angle \hat{BGA} = \angle \hat{FBC} = 80\degree; \overline{AG} = \overline{CG}; \triangle FBC \approx \triangle AGC$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{80}{0.08}{40}{0.12}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (E) -- (D) -- (F);
+	\draw (A) -- node[sloped] {$||$} (G) -- node[sloped] {$||$} (C);
+	\draw[red, dotted, ultra thick] (H) -- (E);
+	\end{tikzpicture}
+	\caption{$\overline{HE}//\overline{GC}; \angle \hat{AHE} = 80\degree; \hat{HAE} = \hat{HEA} = 50\degree; \overline{GH} = \overline{HE} = \overline{HA}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{80}{0.08}{40}{0.12}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (E) -- (D) -- (F);
+	\draw (A) -- node[sloped] {$|||$} (H) -- node[sloped] {$|||$} (G);
+	\draw (E) -- node[sloped] {$|||$} (H);
+	\draw[red, dotted, ultra thick] (D) -- (I);
+	\end{tikzpicture}
+	\caption{$\angle \hat{GIC} = \angle \hat{BDC} = 90\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{80}{0.08}{40}{0.12}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (D) -- (I);
+	\draw[red, dotted, ultra thick] (E) -- (J);
+	\end{tikzpicture}
+	\caption{$\triangle HJE \approx \triangle BDC$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{G}{40}{0.08}{200}{0.12}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I);
+	\draw (E) -- (J);
+	\draw[red, dotted, ultra thick] (E) -- (G);
+	\end{tikzpicture}
+	\caption{$\overline{GH} = \overline{HE} \therefore \angle \hat{HGE} = \angle \hat{HEG} = 40\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I);
+	\draw (G) -- (E) -- (J);
+	\draw[red, dotted, ultra thick] (E) -- (I);
+	\end{tikzpicture}
+	\caption{$\overline{AE} = \overline{IE} = \overline{EC}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{70}{0.08}{280}{0.12}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I) -- (E);
+	\draw (G) -- (E) -- (J);
+	\draw[red, dotted, ultra thick] (E) -- (K);
+	\end{tikzpicture}
+	\caption{$\triangle HJE \equiv \triangle KJE; \triangle KIE \approx \triangle BCF$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate [label=below:$L$] (L) at (0.23,0);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{50}{0.08}{285}{0.12}
+	\makeangle{D}{E}{C}{20}{0.08}{250}{0.24}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I) -- (E) -- (K);
+	\draw (G) -- (E) -- (J);
+	\draw[red, dotted, ultra thick] (E) -- (L);
+	\end{tikzpicture}
+	\caption{$\triangle HJE \equiv \triangle KJE; \triangle KIE \approx \triangle BCF$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17);
+	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate [label=below:$L$] (L) at (0.23,0);
+	\coordinate [label=above left:$M$] (M) at (0.25,0.13);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{50}{0.08}{285}{0.12}
+	\makeangle{D}{E}{C}{20}{0.08}{250}{0.24}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I) -- (E) -- (K);
+	\draw (G) -- (E) -- (J);
+	\draw (E) -- (L);
+	\draw[blue, ultra thick] (M) -- (L) -- (C) -- cycle;
+	\draw[red, ultra thick] (J) -- (H) -- (E) -- cycle;
+	\end{tikzpicture}
+	\caption{$\overline{JH} = \overline{ML} = \overline{KJ} = \frac{\overline{IG}}{2} \therefore \overline{KH} = \overline{ML}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17); \coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate [label=below:$L$] (L) at (0.23,0);
+	\coordinate [label=above left:$M$] (M) at (0.25,0.13);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{50}{0.08}{285}{0.12}
+	\makeangle{D}{E}{C}{20}{0.08}{250}{0.24}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I) -- (E) -- (K);
+	\draw (G) -- (E) -- (J);
+	\draw (E) -- (L);
+	\draw[blue, ultra thick] (L) -- (E) -- (C) -- cycle;
+	\draw[red, ultra thick] (K) -- (I) -- (E) -- cycle;
+	\end{tikzpicture}
+	\caption{$\overline{AG}//\overline{EL} \therefore \overline{AG} = 2\overline{EL}; \overline{KI} = \overline{LC}, \overline{KE} = \overline{LE}, \angle \hat{KIE} = \angle \hat{LCE} = 50\degree \therefore \triangle KIE \equiv \triangle LCE$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17); \coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate [label=below:$L$] (L) at (0.23,0);
+	\coordinate [label=above left:$M$] (M) at (0.25,0.13);
+	\coordinate [label=above left:$N$] (N) at (-0.13,0.76);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{50}{0.08}{285}{0.12}
+	\makeangle{D}{E}{C}{20}{0.08}{250}{0.24}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+	\makeangle{B}{A}{G}{20}{0.08}{270}{0.24}
+
+	\draw (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw (H) -- (E) -- (D) -- (F);
+	\draw (H) -- (G);
+	\draw (D) -- (I) -- (E) -- (K);
+	\draw (G) -- (E) -- (J);
+	\draw (E) -- (L);
+	\draw[blue, ultra thick] (A) -- (H) -- (E) -- cycle;
+	\draw[red, ultra thick] (K) -- (I) -- (E) -- cycle;
+	\end{tikzpicture}
+	\caption{$\triangle KIE \equiv \triangle HEA \therefore \overline{AH} = \overline{AM} \therefore \angle \hat{GAB} = 20\degree \therefore \angle \hat{BAC} = 30\degree$}
+\end{figure}
