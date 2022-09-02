@@ -1,0 +1,181 @@
+\section{Exercise 002}
+
+\subsection{Problem}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{30}{0.08}{165}{0.12}
+	\makeangle{A}{D}{B}{x}{0.08}{310}{0.12}
+
+	\draw (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (A) -- node[sloped] {$|$} (C);
+	\draw (B) -- node[sloped] {$|$} (D);
+
+	\end{tikzpicture}
+	\caption{$\overline{DB} = \overline{AC}; \angle \hat{CAB} = 10\degree; \angle \hat{ABD} = 30\degree; \angle \hat{ADB} = x\degree$}
+\end{figure}
+
+\subsection{Solution 1}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{30}{0.08}{165}{0.12}
+	\makeangle{A}{D}{B}{x}{0.08}{310}{0.12}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+
+	\draw (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (A) -- node[sloped] {$|$} (E) -- node[sloped] {$|$} (B);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{EAC} = 20\degree; \angle hat{EAB} = \angle \hat{EBA} \therefore \overline{AE} = \overline{EB}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	\coordinate [label=below:$F$] (F) at (0.5,0);
+	\coordinate [label=above:$G$] (G) at (0.24,0.14);
+	\coordinate [label=above right:$H$] (H) at (0.5,0.092);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{20}{0.08}{160}{0.18}
+	\makeangle{A}{B}{C}{10}{0.08}{175}{0.24}
+	\makeangle{A}{D}{B}{x}{0.08}{310}{0.12}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+
+	\draw (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (B) -- (G);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{GBA} = 10\degree; \overline{GB} = \overline{AC}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	\coordinate [label=below:$F$] (F) at (0.5,0);
+	\coordinate [label=above:$G$] (G) at (0.24,0.14);
+	\coordinate [label=above right:$H$] (H) at (0.5,0.092);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{20}{0.08}{160}{0.18}
+	\makeangle{A}{B}{C}{10}{0.08}{175}{0.24}
+	\makeangle{A}{D}{B}{x}{0.08}{310}{0.12}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+	\makeangle{C}{H}{B}{20}{0.08}{0}{0.18}
+
+	\draw (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (B) -- (G);
+	\draw (A) -- node[sloped] {$|$}
+		(G) -- node[sloped] {$|$}
+		(H) -- node[sloped] {$|$}
+		(C) -- node[sloped] {$|$} (B);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{HAB} + \angle \hat{HBA} = \angle \hat{CHB} = \angle \hat{GHA} = 20\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	\coordinate [label=below:$F$] (F) at (0.5,0);
+	\coordinate [label=above:$G$] (G) at (0.24,0.14);
+	\coordinate [label=above right:$H$] (H) at (0.5,0.092);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{20}{0.08}{160}{0.18}
+	\makeangle{A}{B}{C}{10}{0.08}{175}{0.24}
+	\makeangle{A}{D}{B}{x}{0.08}{310}{0.12}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+	\makeangle{C}{H}{B}{20}{0.08}{0}{0.18}
+
+	\draw (F) -- (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (B) -- (G);
+
+	\end{tikzpicture}
+	\caption{$\overline{EF} \perp \overline{AB}; \angle \hat{EFB} = \angle \hat{EFA} = 90\degree; \triangle AEF \equiv \triangle BEF$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	\coordinate [label=below:$F$] (F) at (0.5,0);
+	\coordinate [label=above left:$G$] (G) at (0.24,0.14);
+	\coordinate [label=above right:$H$] (H) at (0.5,0.092);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{20}{0.08}{160}{0.18}
+	\makeangle{A}{B}{C}{10}{0.08}{175}{0.24}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+	\makeangle{A}{D}{G}{y}{0.08}{240}{0.12}
+	\makeangle{C}{H}{B}{20}{0.08}{0}{0.18}
+	\makeangle{B}{D}{G}{80}{0.08}{300}{0.12}
+
+	\draw (F) -- (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (B) -- (G) -- (D);
+
+	\end{tikzpicture}
+	\caption{$\overline{BG} = \overline{BD} \therefore \angle \hat{DGB} = 80\degree; \angle \hat{GAH} = \angle \hat{GHA} = 20\degree \therefore \angle \hat{EGH} = 40\degree \therefore \angle \hat{DGE} = 40\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.76,0.14);
+	\coordinate [label=above:$D$] (D) at (0.33,0.39);
+	\coordinate [label=above:$E$] (E) at (0.5,0.29);
+	\coordinate [label=below:$F$] (F) at (0.5,0);
+	\coordinate [label=above left:$G$] (G) at (0.24,0.14);
+	\coordinate [label=above right:$H$] (H) at (0.5,0.092);
+	
+	\makeangle{C}{A}{B}{10}{0.08}{5}{0.24}
+	\makeangle{A}{B}{C}{20}{0.08}{160}{0.18}
+	\makeangle{A}{B}{C}{10}{0.08}{175}{0.24}
+	\makeangle{E}{A}{C}{20}{0.08}{20}{0.18}
+	\makeangle{A}{D}{G}{20}{0.08}{240}{0.18}
+	\makeangle{B}{D}{G}{80}{0.08}{300}{0.12}
+	\makeangle{C}{H}{B}{20}{0.08}{0}{0.18}
+
+	\draw (F) -- (E) -- (A) -- (B) -- (C) -- (A) -- (D) -- (C);
+	\draw (B) -- (G) -- (D);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{DGE} = \angle \hat{HGE} = 40\degree and \angle \hat{EDG} = \angle \hat{EHG} = 80\degree \therefore \triangle DEG = \triangle HEG \therefore \overline{DG} = \overline{HG} = \overline{AG} \therefore \angle \hat{DAG} = \angle \hat{ADG} = 20\degree$}
+\end{figure}

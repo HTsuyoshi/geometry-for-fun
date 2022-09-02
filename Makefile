@@ -1,5 +1,5 @@
-main.pdf: main.tex ./contents/Exercise_001.tex
+main.pdf: main.tex ./contents/*
 	latexmk -pdf $<
 
 clean: 
-	@rm *.toc *.aux *.log *.fls *.fdb_latexmk *.out ./contents/*.aux
+	rm *.{aux,log,fls,toc,fdb_latexmk,out} ./contents/*.aux

@@ -1,0 +1,264 @@
+\section{Triangulo Russo}
+
+\subsection{Problem}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{E}{60}{0.08}{30}{0.12}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{D}{E}{A}{x}{0.08}{225}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{DAE} = 20\degree; \angle \hat{EAB} = 60\degree; \angle \hat{DBA} = 50\degree; \angle \hat{CBD} = 30\degree$}
+\end{figure}
+
+\subsection{Solution 1}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=above left:$F$] (F) at (-0.27,1.51);
+	\coordinate (Z) at (-0.40,1.28);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{E}{60}{0.08}{30}{0.12}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{A}{C}{B}{20}{0.08}{270}{0.30}
+	\makeangle{A}{C}{F}{20}{0.08}{250}{0.30}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A);
+	\draw (E) -- node[sloped] {$|$}
+		(C) -- node[sloped] {$|$}
+		(F) -- (Z);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{FCD} = 20\degree; \overline{CF} = \overline{CE}; \overline{FC} \parallel \overline{AE}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+		\coordinate [label=below left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=above left:$F$] (F) at (-0.27,1.51);
+	\coordinate (Z) at (-0.40,1.28);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{E}{60}{0.08}{30}{0.12}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{A}{C}{B}{20}{0.08}{270}{0.30}
+	\makeangle{A}{C}{F}{20}{0.08}{250}{0.30}
+	\makeangle{C}{F}{D}{110}{0.08}{5}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A);
+	\draw (E) -- (C) -- (F) -- (D);
+	\draw (F) -- (Z);
+
+
+	\end{tikzpicture}
+	\caption{$F \in \overline{BD}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+		\coordinate [label=below left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=above left:$F$] (F) at (-0.27,1.51);
+	\coordinate (Z) at (-0.40,1.28);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{E}{60}{0.08}{30}{0.12}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{A}{C}{B}{20}{0.08}{270}{0.30}
+	\makeangle{A}{C}{F}{20}{0.08}{250}{0.30}
+	\makeangle{C}{F}{D}{110}{0.08}{5}{0.18}
+	\makeangle{A}{F}{D}{30}{0.08}{295}{0.24}
+	\makeangle{F}{A}{D}{20}{0.08}{90}{0.24}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A);
+	\draw (E) -- (C) -- (F) -- (D);
+	\draw (A) -- (F) -- (Z);
+
+
+	\end{tikzpicture}
+	\caption{$\triangle CDB \approx \triangle ADF \therefore \angle \hat{CAF} = \hat{ACE}; \angle \hat{CBF} = \angle \hat{BFA}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+		\coordinate [label=below left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=above left:$F$] (F) at (-0.27,1.51);
+	\coordinate [label=above right:$G$] (G) at (0.25,1.42);
+	\coordinate (Z) at (-0.40,1.28);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{E}{60}{0.08}{30}{0.12}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{A}{C}{B}{20}{0.08}{270}{0.30}
+	\makeangle{A}{C}{F}{20}{0.08}{250}{0.30}
+	\makeangle{E}{F}{D}{40}{0.08}{330}{0.18}
+	\makeangle{C}{F}{E}{70}{0.08}{25}{0.18}
+	\makeangle{A}{F}{D}{30}{0.08}{295}{0.24}
+	\makeangle{F}{A}{D}{20}{0.08}{90}{0.24}
+
+	\makeangle{D}{E}{G}{40}{0.08}{190}{0.18}
+	\makeangle{A}{E}{D}{30}{0.08}{225}{0.24}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A);
+	\draw (F) -- (G) -- (E) -- (C) -- (F) -- (D);
+	\draw (A) -- (F) -- (Z);
+
+
+	\end{tikzpicture}
+	\caption{$\triangle FGD \equiv \triangle EGD \therefore \angle \hat{GED} = 40\degree \therefore \angle \hat{DEA} = 30\degree$}
+\end{figure}
+
+\subsection{Solution 2}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=right:$F$] (F) at (0.94,0.34);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{F}{20}{0.08}{10}{0.24}
+	\makeangle{F}{A}{E}{40}{0.08}{40}{0.18}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A) -- (F);
+
+	\end{tikzpicture}
+	\caption{$\overline{AD} = \overline{AB} = \overline{AF}; \angle \hat{FAB} = 20\degree; \angle \hat{EAF} = 40\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=right:$F$] (F) at (0.94,0.34);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{F}{20}{0.08}{10}{0.24}
+	\makeangle{F}{A}{E}{40}{0.08}{40}{0.18}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{D}{F}{A}{60}{0.08}{170}{0.18}
+	\makeangle{A}{D}{F}{60}{0.08}{290}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A) -- (F) -- (D);
+	\draw (D) -- node[sloped] {$|$}
+		(F) -- node[sloped] {$|$}
+		(A) -- node[sloped] {$|$} (D);
+
+	\end{tikzpicture}
+	\caption{$\overline{DA} = \overline{AF} = \overline{FD}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=right:$F$] (F) at (0.94,0.34);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{F}{20}{0.08}{10}{0.24}
+	\makeangle{F}{A}{E}{40}{0.08}{40}{0.18}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{D}{F}{A}{60}{0.08}{170}{0.18}
+	\makeangle{A}{D}{F}{60}{0.08}{290}{0.18}
+	\makeangle{E}{F}{D}{40}{0.08}{120}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A) -- (F) -- (D);
+	\draw (D) -- node[sloped] {$|$}
+		(F) -- node[sloped] {$|$}
+		(A) -- node[sloped] {$|$} (D);
+
+	\end{tikzpicture}
+	\caption{$\overline{DA} = \overline{AF} = \overline{FD} \therefore \angle \hat{DFE} = 40\degree$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$A$] (A) at (0,0);
+	\coordinate [label=below:$B$] (B) at (1,0);
+	\coordinate [label=above:$C$] (C) at (0.5,2.83);
+	\coordinate [label=above left:$D$] (D) at (0.17,0.98);
+	\coordinate [label=below right:$E$] (E) at (0.765,1.33);
+	\coordinate [label=right:$F$] (F) at (0.94,0.34);
+	
+	\makeangle{C}{A}{E}{20}{0.08}{70}{0.30}
+	\makeangle{B}{A}{F}{20}{0.08}{10}{0.24}
+	\makeangle{F}{A}{E}{40}{0.08}{40}{0.18}
+	\makeangle{A}{B}{D}{50}{0.08}{155}{0.12}
+	\makeangle{D}{B}{E}{30}{0.08}{110}{0.18}
+	\makeangle{D}{F}{A}{60}{0.08}{170}{0.18}
+	\makeangle{A}{D}{F}{60}{0.08}{290}{0.18}
+	\makeangle{E}{F}{D}{40}{0.08}{120}{0.18}
+	\makeangle{F}{D}{E}{70}{0.08}{345}{0.18}
+
+	\draw (A) -- (B) -- (C) -- cycle;
+	\draw (B) -- (D) -- (E) -- (A) -- (F) -- (D);
+	\draw (D) -- node[sloped] {$|$}
+		(F) -- node[sloped] {$|$}
+		(A) -- node[sloped] {$|$} (D);
+	\draw (E) -- node[sloped] {$|$} (F);
+
+	\end{tikzpicture}
+	\caption{$\angle \hat{AFE} = 40\degree \therefore \overline{EF} = \overline{DF} \therefore \angle \hat{FDE} = \angle \hat{FED} = 70\degree$}
+\end{figure}
