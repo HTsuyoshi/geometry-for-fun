@@ -1,7 +1,7 @@
 # Geometry for fun
 
-Cool geometry problems
+Solving geometry problems as a hobby
 
-Solutions in LaTeX [here](./main.pdf)
+[Solutions](./main.pdf)
 
-PS: Amateur proofs
+PS: Rough proofs. But, as time passes, I'll improve the proofs
