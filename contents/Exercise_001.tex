@@ -2,29 +2,35 @@
 
 \subsection{Problem}
 
-\begin{figure}[ht]
-	\centering
-	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
-	\coordinate [label=below:$B$] (B) at (0,0);
-	\coordinate [label=below right:$C$] (C) at (1,0);
-	\coordinate [label=above:$D$] (D) at (0.03,0.17);
-	\coordinate [label=above:$A$] (A) at (-0.27,1.51);
-	\coordinate (CDmid) at ($(C)!0.5!(D)$);
-	\coordinate (ACmid) at ($(A)!0.5!(C)$);
-
-	\node at (CDmid)[above] {$a$};
-	\node at (ACmid)[above right] {$2a$};
+\begin{columns}[totalwidth=\textwidth]
+	\begin{column}[0.49\textwidth]
+	\begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+		\coordinate [label=below:$B$] (B) at (0,0);
+		\coordinate [label=below right:$C$] (C) at (1,0);
+		\coordinate [label=above:$D$] (D) at (0.03,0.17);
+		\coordinate [label=above:$A$] (A) at (-0.27,1.51);
+		\coordinate (CDmid) at ($(C)!0.5!(D)$);
+		\coordinate (ACmid) at ($(A)!0.5!(C)$);
 	
-	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
-	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
-	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
-	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
-
-	\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
-
-	\end{tikzpicture}
-	\caption{$\overline{DC} = a; \overline{AC} = 2a; \angle \hat{CBD} = 80\degree; \angle \hat{ACD} = 40\degree; \angle \hat{BCD} = 10\degree; \angle \hat{BAC} = ?$}
-\end{figure}
+		\node at (CDmid)[above] {$a$};
+		\node at (ACmid)[above right] {$2a$};
+		
+		\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+		\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+		\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+		\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	
+		\draw (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	
+		\end{tikzpicture}
+	\end{figure}
+	\end{column}
+	\begin{column}[0.49\textwidth]
+	$\overline{DC} = a; \overline{AC} = 2a; \angle \hat{CBD} = 80\degree; \angle \hat{ACD} = 40\degree; \angle \hat{BCD} = 10\degree; \angle \hat{BAC} = ?$
+	\end{column}
+\end{columns}
 
 \subsection{Solution 1}
 
